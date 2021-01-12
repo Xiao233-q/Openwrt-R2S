@@ -34,6 +34,13 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/lean/
 #svn co https://github.com/Mattraks/helloworld/branches/Preview/luci-app-ssr-plus package/lean/luci-app-ssr-plus
 svn co https://github.com/Mattraks/helloworld/branches/Preview/naiveproxy package/lean/naiveproxy
 svn co https://github.com/Mattraks/helloworld/branches/Preview/tcping package/lean/tcping
+#patch ssrp for xray trojan
+wget -P package/lean https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/295.patch
+wget -P package/lean https://patch-diff.githubusercontent.com/raw/fw876/helloworld/pull/316.patch
+pushd package/lean
+patch -p1 < 295.patch
+patch -p1 < 316.patch
+popd
 
 #SSRP dependences
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shadowsocksr-libev package/lean/shadowsocksr-libev
