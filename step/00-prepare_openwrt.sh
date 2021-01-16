@@ -6,10 +6,6 @@ sed -i '4s/src-git/#src-git/g' ./feeds.conf.default
 sed -i '5s/src-git/#src-git/g' ./feeds.conf.default
 ./scripts/feeds update -a && ./scripts/feeds install -a
 
-#temp patch for kernel 5.4.89
-wget https://patch-diff.githubusercontent.com/raw/openwrt/openwrt/pull/3767.patch
-patch -p1 < ./3767.patch
-
 #patch jsonc
 patch -p1 < ../patches/0000-use_json_object_new_int64.patch
 #Add upx-ucl support
